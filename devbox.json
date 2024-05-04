@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetpack-io/devbox/0.10.3/.schema/devbox.schema.json",
+  "packages": [
+    "packer@1.8.2",
+    "vagrant@2.3.7",
+    "python@3.10.12",
+    "pipenv"
+  ],
+  "shell": {
+    "init_hook": "pipenv shell",
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

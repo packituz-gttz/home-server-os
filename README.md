@@ -31,4 +31,4 @@ In order to build the box and upload it into Vagrant Cloud execute
 make build
 ```
 
-Notice: This process is very time consuming about 45min depending on your machine and internet specs.
+Notice: This process is very time-consuming about 45min depending on your machine and internet specs.

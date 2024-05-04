@@ -3,6 +3,11 @@
   hosts: all
   become: true
   tasks:
+    - name: Limit number of kernels on system to 2
+      ansible.builtin.lineinfile:
+        path: /etc/yum.conf
+        regexp: '^installonly_limit='
+        line: "installonly_limit=2"
 
     - name: Install the "Server with GUI" group
       ansible.builtin.dnf:

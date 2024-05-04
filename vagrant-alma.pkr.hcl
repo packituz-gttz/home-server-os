@@ -1,3 +1,12 @@
+packer {
+  required_plugins {
+    ansible = {
+      version = "v1.0.0"
+      source = "github.com/hashicorp/ansible"
+    }
+  }
+}
+
 source "vagrant" "almalinux9" {
   communicator = "ssh"
   source_path  = "almalinux/9"
