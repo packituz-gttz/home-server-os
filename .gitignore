@@ -1,3 +1,7 @@
 .idea
 *.pkrvars.hcl
 output-almalinux9
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
