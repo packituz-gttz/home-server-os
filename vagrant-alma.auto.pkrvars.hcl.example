@@ -1,0 +1,4 @@
+cloud_access_token = "cloud-token"
+box_version        = "v0.0.date"
+box_name           = "user/image-name"
+output_box_version = "date.0.0"
