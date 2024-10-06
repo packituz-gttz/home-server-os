@@ -2,7 +2,11 @@ packer {
   required_plugins {
     ansible = {
       version = "v1.0.0"
-      source = "github.com/hashicorp/ansible"
+      source  = "github.com/hashicorp/ansible"
+    }
+    vagrant = {
+      version = "~> 1"
+      source  = "github.com/hashicorp/vagrant"
     }
   }
 }
@@ -12,11 +16,11 @@ source "vagrant" "almalinux9" {
   source_path  = "almalinux/9"
   provider     = "virtualbox"
   add_force    = true
-  box_version  = "${var.box_version}"
+  box_version  = "9.4.20240805"
 }
 
 build {
-  name    = "almalinux-server"
+  name = "almalinux-server1"
   sources = ["source.vagrant.almalinux9"]
 
 
@@ -28,10 +32,13 @@ build {
     ]
   }
 
-  post-processor "vagrant-cloud" {
-    access_token = "${var.cloud_access_token}"
-    version      = "${var.output_box_version}"
-    box_tag      = "${var.box_name}"
+  post-processor "vagrant-registry" {
+    client_id     = "${var.hcp_client_id}"
+    client_secret = "${var.hcp_client_secret}"
+    version       = "${var.output_box_version}"
+    box_tag       = "${var.box_name}"
+    architecture  = "amd64"
   }
+
 
 }
